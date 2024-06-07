@@ -1,0 +1,86 @@
+<%- layout('/layouts/boilerplate') %>
+
+    <body>
+
+        <div class="container my-4">
+            <div class="listing-item">
+                <img src="<%=listing.image%>" alt="Cozy Apartment in Paris" class="listing-image">
+                <div class="listing-details">
+                    <h2 class="listing-title">
+                        <%= listing.title %>
+                    </h2>
+                    <p class="listing-description">
+                        <%= listing.description %>
+                    </p>
+                    <p class="listing-price"><b>price:</b>
+                        &#8377;<%= listing.price.toLocaleString("en-IN") %>/night
+
+                    </p>
+                    <p class="listing-location"><b>location:</b>
+                        <%=listing.location%>
+                    </p>
+                    <p class="listing-location"><b>country:</b>
+                        <%=listing.country%>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <hr>
+            <h3 style="font-family: rakkas; font-size: 3rem; text-align: center;">Update Listing</h3>
+        </div>
+        <div class="container form-container">
+            <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" novalidate class="needs-validation"
+                enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" value="<%= listing.title %>" class="form-control" id="title"
+                        name="listings[title]" required>
+                    <div class="invalid-feedback">
+                        Title required. </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" id="description" placeholder="<%= listing.description %>"
+                        name="listings[description]" rows="3" required></textarea>
+                    <div class="invalid-feedback">
+                        Description required.
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Location:</label>
+                        <input type="text" value="<%= listing.location %>" class="form-control" id="location"
+                            name="listings[location]" required>
+                        <div class="invalid-feedback">
+                            Location required.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input type="text" value="<%= listing.country %>" class="form-control" id="country"
+                            name="listings[country]" required>
+                        <div class="invalid-feedback">
+                            Country required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price per Night (&#8377;):</label>
+                    <input type="number" value="<%= listing.price %>" class="form-control" id="price"
+                        name="listings[price]" required>
+                    <div class="invalid-feedback">
+                        price required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Original Image:</b>
+                    <img src="<%= originalImageUrl %>" alt="">
+                    <label for="image">Upload new Image:</label>
+                    <input type="file" class="form-control" id="image" name="listings[image]">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </body>

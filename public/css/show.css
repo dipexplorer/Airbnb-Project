@@ -1,0 +1,90 @@
+.listing-item {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: scale-down;
+    margin-bottom: 20px;
+}
+
+.listing-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.listing-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    /* Improved line height for better readability */
+    margin-bottom: 20px;
+}
+
+.listing-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.listing-location {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-decoration: none !important;
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.f-info {
+    display: flex;
+    height: 8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+.f-info-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-info-socials i {
+    margin-right: 1rem;
+}
+
+.f-info-socials {
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+
+}
+
+.f-info-links a {
+    text-decoration: none !important;
+    color: #fff;
+}
+
+/* Hover effect for listing items */
+.listing-item:hover {
+    transform: translateY(-5px);
+    /* Move up slightly on hover */
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    /* Slightly larger shadow on hover */
+}

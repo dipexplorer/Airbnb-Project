@@ -1,0 +1,161 @@
+<%- layout("/layouts/boilerplate") -%>
+    <style>
+        .fillters {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .fillter {
+            text-align: center;
+            margin-right: 2rem;
+            opacity: 0.7;
+        }
+
+        .fa-solid {
+            font-size: 1.5rem;
+        }
+
+        .fillter:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .tax-info {
+            display: none;
+        }
+
+        .tax-toggler {
+            align-items: center !important;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 1rem !important;
+        }
+    </style>
+
+    <body>
+        <div class="fillters container mt-4">
+            <div class="fillter">
+                <div>
+                    <i class="fa-solid fa-fire"></i>
+                    <p>Trandings</p>
+                </div>
+            </div>
+            <div class="fillter">
+                <div>
+                    <i class="fa-solid fa-bed"></i>
+                    <p>Rooms</p>
+                </div>
+            </div>
+            <div class="fillter">
+                <div>
+                    <i class="fa-solid fa-tractor"></i>
+                    <p>Farms</p>
+                </div>
+            </div>
+            <div class="fillter">
+                <div>
+                    <i class="fa-solid fa-umbrella-beach"></i>
+                    <p>Beach Front</p>
+                </div>
+            </div>
+            <div class="fillter">
+                <div>
+                    <i class="fa-solid fa-water"></i>
+                    <p>Lake</p>
+                </div>
+            </div>
+            <div class="fillter">
+                <div>
+                    <i class="fa-solid fa-tower-observation"></i>
+                    <p>Tower</p>
+                </div>
+            </div>
+            <div class="fillter">
+                <div>
+                    <i class="fa-solid fa-cable-car"></i>
+                    <p>Rope</p>
+                </div>
+            </div>
+            <div class="fillter">
+                <div>
+                    <i class="fa-solid fa-democrat"></i>
+                    <p>Zoo</p>
+
+                </div>
+            </div>
+            <div class="fillter">
+                <div>
+                    <i class="fa-solid fa-mountain-sun"></i>
+                    <p>Moutain</p>
+                </div>
+            </div>
+            <div class="fillter">
+                <div>
+                    <i class="fa-brands fa-solid fa-fort-awesome"></i>
+                    <p>Castels</p>
+                </div>
+            </div>
+            <div class="fillter">
+                <div>
+                    <i class="fa-solid fa-person-swimming"></i>
+                    <p>Swimming</p>
+                </div>
+            </div>
+
+            <!-- toogler -->
+            <div class="tax-toggler">
+                <div class="form-check-reverse form-switch">
+                    <input type="checkbox" role="switch" class="form-check-input" id="flexSwitchCheckDefault">
+                    <label for="flexSwitchCheckDefault" class="form-check-lable">Display total after taxes</label>
+                </div>
+            </div>
+        </div>
+        <div class="container my-4">
+            <div class="row">
+                <!-- Listing items -->
+                <% for(listing of allListings) { %>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="listing-item">
+                            <img src="<%=listing.image.url%>" alt="Cozy Apartment in Paris" class="listing-image">
+                            <div class="listing-details">
+                                <h2 class="listing-title">
+                                    <%= listing.title %>
+                                </h2>
+                                <p class="listing-description">
+                                    <%= listing.description %>
+                                </p>
+                                <p class="listing-price"><b>price:</b>
+                                    &#8377;<%=listing.price%>/night <i class="tax-info"> &nbsp;+18%GST</i>
+                                </p>
+                                <p class="listing-location"><b>location:</b>
+                                    <%=listing.location%>
+                                </p>
+                                <p class="listing-location"><b>country:</b>
+                                    <%=listing.country%>
+                                </p>
+                                <div style="display: flex;">
+                                    <form action="/listings/<%= listing.id%>" method="get">
+                                        <button class="btn btn-primary">Show</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                        <!-- Add more listings as needed -->
+            </div>
+        </div>
+        <script>
+            let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+            taxSwitch.addEventListener("click", () => {
+                let taxInfo = document.getElementsByClassName("tax-info");
+                for (info of taxInfo) {
+                    if (info.style.display != "inline") {
+                        info.style.display = "inline";
+                    } else {
+                        info.style.display = "none";
+                    }
+                }
+            })
+        </script>
+    </body>
