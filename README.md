@@ -2,6 +2,20 @@
 
 A full-stack vacation rental marketplace application built with Node.js, Express, MongoDB, and EJS. This is an Airbnb-style platform where users can list, browse, and review properties.
 
+## Screenshots
+
+### Home Page - All Listings
+![Home Page](screenshots/home-page.png)
+
+### User Login
+![Login Page](screenshots/login.png)
+
+### User Signup
+![Signup Page](screenshots/signup.png)
+
+### Create New Listing
+![New Listing Form](screenshots/new-listing.png)
+
 ## Features
 
 ### Core Functionality
